@@ -1,6 +1,6 @@
 Navigation:
 **Lab 1: Create your Cloud Environment** ---
-[Lab 2: Set up Postgres via Operator](lab.md)
+[Lab 2: Set up Postgres via Operator](lab2.md)
 
 ---
 
