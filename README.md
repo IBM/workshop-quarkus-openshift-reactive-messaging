@@ -1,6 +1,6 @@
 # Workshop: Reactive Messaging with Quarkus on OpenShift
 
-In this workshop you'll learn how to implement reactive messaging with Java, Quarkus, Kafka, Vert.x and MicroProfile. 
+In this workshop you'll learn how to implement reactive messaging functionality with Java, Quarkus, Kafka, Vert.x and MicroProfile. 
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
