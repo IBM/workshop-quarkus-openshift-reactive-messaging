@@ -29,8 +29,8 @@ After you complete this workshop, you'll understand the following reactive funct
 
 These are the labs of this workshop, go through all of them in sequence, start with lab 1:
 
-- Lab 1: [Create your Cloud environment](labs/lab1.md)
-- Lab 2: [to be done](labs/lab2.md)
+- Lab 1: [Create your Cloud Environment](labs/lab1.md)
+- Lab 2: [Set up Postgres via Operator](labs/lab2.md)
 
 ## What to do next
 
