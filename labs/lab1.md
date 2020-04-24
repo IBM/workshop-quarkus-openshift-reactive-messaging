@@ -1,5 +1,5 @@
 Navigator:
-* [Workshop Description](../readme.md)
+* [Workshop Description](../)
 * Lab 1: Create your Cloud Environment
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)

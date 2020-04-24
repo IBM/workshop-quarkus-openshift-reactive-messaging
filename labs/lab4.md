@@ -1,5 +1,5 @@
 Navigator:
-* [Workshop Description](../readme.md)
+* [Workshop Description](../)
 * Lab 1: [Create your Cloud Environment](lab1.md)
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
@@ -68,6 +68,14 @@ The previous steps have create build configs, builds and image streams.
 ![kafka deployment](../images/verify-app3.png)
 
 ![kafka deployment](../images/verify-app4.png)
+
+To launch the application get the URLs via the following command.
+
+![kafka deployment](../images/verify-app5.png)
+
+Open the web application in a browser. Then invoke the curl post command. The web application should show the new entry.
+
+![kafka deployment](../images/verify-app6.png)
 
 ---
 
