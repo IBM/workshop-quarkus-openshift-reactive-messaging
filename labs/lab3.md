@@ -1,8 +1,9 @@
 Navigator:
-* Lab 1: [Create your Cloud Environment](labs/lab1.md)
-* Lab 2: [Deploy Kafka via Script](labs/lab2.md)
+* [Workshop Description](../readme.md)
+* Lab 1: [Create your Cloud Environment](lab1.md)
+* Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: Deploy Postgres via Operator
-* Lab 4: [Deploy Sample Application](labs/lab4.md)
+* Lab 4: [Deploy Sample Application](lab4.md)
 
 ---
 
