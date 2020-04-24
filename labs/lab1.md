@@ -1,6 +1,8 @@
-Navigation:
-**Lab 1: Create your Cloud Environment** ---
-[Lab 2: Set up Postgres via Operator](lab2.md)
+Navigator:
+* Lab 1: Create your Cloud Environment
+* Lab 2: [Deploy Kafka via Script](labs/lab2.md)
+* Lab 3: [Deploy Postgres via Operator](labs/lab3.md)
+* Lab 4: [Deploy Sample Application](labs/lab4.md)
 
 ---
 
@@ -80,22 +82,6 @@ $ ROOT_FOLDER=$(pwd)
 
     ![oc login in cloudshell](../images/openshift-login3.png)
 
-## Step 4: Deploy Kafka
-
-Invoke the following command:
-
-```
-$ os4-scripts/deploy-kafka-oc-only.sh 
-```
-
-As result you will see this:
-
-![kafka deployment](../images/kafka-deployment.png)
-
-It takes a couple of minutes until all pods have been started. You can check the status via the OpenShift web console.
-
-![kafka deployment](../images/kafka-deployment2.png)
-
 ---
 
-__Continue with [Lab 2: Set up Postgres via Operator](lab2.md)__
+__Continue with [Lab 2: Deploy Kafka via Script](lab2.md)__

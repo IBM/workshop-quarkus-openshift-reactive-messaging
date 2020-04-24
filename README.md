@@ -10,7 +10,7 @@ Articles can be created via REST API. The web application receives a notificatio
 
 <kbd><img src="images/demo-1-video-small.gif" /></kbd>
 
-The next diagram explains the flow between the different components and microservices. This workshop only uses the highlighted services.
+The next diagram explains the flow between the different components and microservices. 
 
 The API client 'Submissions' triggers the REST API of the 'Articles' service to create new articles. The 'Articles' service sends a message to the 'Web-API' service via 'Kafka'. The 'Web-API' provides a streaming endpoint that the web application 'Web-App' consumes.
 
@@ -29,8 +29,10 @@ After you complete this workshop, you'll understand the following reactive funct
 
 These are the labs of this workshop, go through all of them in sequence, start with lab 1:
 
-- Lab 1: [Create your Cloud Environment](labs/lab1.md)
-- Lab 2: [Set up Postgres via Operator](labs/lab2.md)
+* Lab 1: [Create your Cloud Environment](labs/lab1.md)
+* Lab 2: [Deploy Kafka via Script](labs/lab2.md)
+* Lab 3: [Deploy Postgres via Operator](labs/lab3.md)
+* Lab 4: [Deploy Sample Application](labs/lab4.md)
 
 ## What to do next
 
