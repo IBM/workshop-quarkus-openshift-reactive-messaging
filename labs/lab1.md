@@ -13,7 +13,7 @@ We will use preconfigured [OpenShift on IBM Cloud](https://cloud.ibm.com/kuberne
 Alternatively you can also use [CodeReady Containers](https://github.com/code-ready/crc) to run OpenShift locally.
 
 
-## 1. Work Environment
+### Step 1: Set up Work Environment
 
 For this workshop no client side setup is required. Instead we will use the IBM Cloud Shell (Beta):
 
@@ -29,7 +29,7 @@ This is what you should see:
 ![](../images/cloud-shell.png)
 
 
-## 2. Get the Code
+### Step 2: Get the Code
 
 In the IBM Cloud Shell execute the following commands:
 
@@ -42,7 +42,7 @@ $ ROOT_FOLDER=$(pwd)
 
 ![](../images/cloud-shell-clone.png)
 
-## 3. Get Access to OpenShift on the IBM Cloud
+### Step 3. Get Access to OpenShift on the IBM Cloud
 
 ### 3.a. Open the OpenShift Console
 
@@ -80,7 +80,7 @@ $ ROOT_FOLDER=$(pwd)
 
     ![oc login in cloudshell](../images/openshift-login3.png)
 
-## 4. Deploy Kafka
+## Step 4: Deploy Kafka
 
 Invoke the following command:
 
