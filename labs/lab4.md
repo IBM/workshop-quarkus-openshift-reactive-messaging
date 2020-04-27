@@ -4,6 +4,7 @@ Navigator:
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
 * Lab 4: Deploy Sample Application
+* Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
 
 ---
 
@@ -26,7 +27,7 @@ $ oc new-project cloud-native-starter
 Invoke the following command in the Cloud Shell.
 
 ```
-$ os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
+$ $ROOT_FOLDER/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
 ```
 
 ![kafka deployment](../images/deploy-app1.png)
@@ -34,7 +35,7 @@ $ os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
 Invoke the following command in the Cloud Shell.
 
 ```
-$ os4-scripts/deploy-authors-via-oc.sh
+$ $ROOT_FOLDER/os4-scripts/deploy-authors-via-oc.sh
 ```
 
 ![kafka deployment](../images/deploy-app2.png)
@@ -42,7 +43,7 @@ $ os4-scripts/deploy-authors-via-oc.sh
 Invoke the following command in the Cloud Shell.
 
 ```
-$ os4-scripts/deploy-web-api-reactive-via-oc.sh
+$ $ROOT_FOLDER/os4-scripts/deploy-web-api-reactive-via-oc.sh
 ```
 
 ![kafka deployment](../images/deploy-app3.png)
@@ -50,7 +51,7 @@ $ os4-scripts/deploy-web-api-reactive-via-oc.sh
 Invoke the following command in the Cloud Shell.
 
 ```
-$ os4-scripts/deploy-web-app-reactive-via-oc.sh
+$ $ROOT_FOLDER/os4-scripts/deploy-web-app-reactive-via-oc.sh
 ```
 
 ![kafka deployment](../images/deploy-app4.png)
@@ -70,6 +71,10 @@ The previous steps have create build configs, builds and image streams.
 ![kafka deployment](../images/verify-app4.png)
 
 To launch the application get the URLs via the following command.
+
+```
+$ $ROOT_FOLDER/os4-scripts/show-urls.sh
+```
 
 ![kafka deployment](../images/verify-app5.png)
 

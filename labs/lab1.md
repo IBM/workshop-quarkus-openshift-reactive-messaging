@@ -4,6 +4,7 @@ Navigator:
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
 * Lab 4: [Deploy Sample Application](lab4.md)
+* Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
 
 ---
 
