@@ -28,7 +28,9 @@ $ cd $ROOT_FOLDER/web-app-reactive/src/components
 $ cat Home.vue
 ```
 
-![server events](../images/server-sent-events2.png)
+![server events](../images/server-sent-events2a.png)
+
+![server events](../images/server-sent-events2b.png)
 
 ### Step 2: Develop the Streaming Endpoint
 
