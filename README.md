@@ -35,7 +35,8 @@ These are the labs of this workshop, go through all of them in sequence, start w
 * Lab 2: [Deploy Kafka via Script](labs/lab2.md)
 * Lab 3: [Deploy Postgres via Operator](labs/lab3.md)
 * Lab 4: [Deploy Sample Application](labs/lab4.md)
-* Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
+* Lab 5: [Reactive Messaging with MicroProfile](labs/lab5.md)
+* Lab 6: [Server Sent Events](labs/lab6.md)
 
 ## What to do next
 

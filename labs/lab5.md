@@ -5,6 +5,7 @@ Navigator:
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
 * Lab 4: [Deploy Sample Application](lab4.md)
 * Lab 5: Reactive Messaging with MicroProfile
+* Lab 6: [Server Sent Events](lab6.md)
 
 ---
 
@@ -27,7 +28,7 @@ Let's take a look at a Java class which receives incomping messages from Kafka a
 Invoke the following command in the Cloud Shell.
 
 ```
-$ cd web-api-reactive/src/main/java/com/ibm/webapi/apis
+$ cd $ROOT_FOLDER/web-api-reactive/src/main/java/com/ibm/webapi/apis
 $ nano NewArticleListener.java
 ```
 
@@ -45,7 +46,7 @@ System.out.println("Here you can add process functionality");
 
 ![kafka deployment](../images/microprofile-kafka2.png)
 
-Exit the Editor via 'Ctrl-X' and 'yes'.
+Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 Confirm that the changes have been saved. 
 
@@ -91,6 +92,8 @@ Once completed, delete the 'Web-API' pod which causes a new pod with the latest 
 
 ![kafka deployment](../images/microprofile-kafka7.png)
 
+### Step 4: Verify the new Version
+
 Create a new article by invoking a curl post command. You can get the URL from the script show-urls.
 
 ```
@@ -119,4 +122,4 @@ Your added line shows up in the logs now.
 
 ---
 
-__Continue with [Lab 6: to be done](lab6.md)__
+__Continue with [Lab 6: Server Sent Events](lab6.md)__

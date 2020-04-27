@@ -5,6 +5,7 @@ Navigator:
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
 * Lab 4: [Deploy Sample Application](lab4.md)
 * Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
+* Lab 6: [Server Sent Events](lab6.md)
 
 ---
 
@@ -26,7 +27,7 @@ For this workshop no client side setup is required. Instead we will use the IBM 
 
    ![](../images/cloud-shell-launch.png)
 
-Note: Your workspace includes 500 MB of temporary storage. Your session closes after 30 minutes of inactivity. If you’re inactive in Cloud Shell for over an hour, your workspace data is removed. It’s also removed if you reach the 4-hour continuous usage or 30-hour weekly usage limits. To track your usage, go to Usage Quota in the Cloud Shell menu.
+Note: Your workspace includes 500 MB of temporary storage. Your session closes after 30 minutes of inactivity. If you’re inactive in Cloud Shell for over an hour, your workspace data is removed. It’s also removed if you reach the 4-hour continuous usage or 30-hour weekly usage limits.
 
 This is what you should see:
 
