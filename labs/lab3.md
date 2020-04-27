@@ -51,15 +51,7 @@ Edit the yaml. The database name needs to be changed to  'database-articles'. Th
 
 ### Step 4: Verify the Installation 
 
-From the 'Projects' page open 'postgres'.
-
-![kafka deployment](../images/setup-postgres8.png)
-
-Click on '2 Pods'.
-
-![kafka deployment](../images/setup-postgres9.png)
-
-Make sure the pod 'database-articles....' is running.
+On the 'Pods' page select the project 'postgres'. Make sure the pod 'database-articles....' is running.
 
 ![kafka deployment](../images/setup-postgres10.png)
 

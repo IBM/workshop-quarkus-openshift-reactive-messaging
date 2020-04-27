@@ -6,6 +6,8 @@ The code is available as open source as part of the [Cloud Native Starter](https
 
 One benefit of reactive models is the ability to update web applications by sending messages, rather than pulling for updates. This is more efficient and improves the user experience.
 
+The workshop uses a sample application to demonstrate reactive functionality. The simple application displays links to articles and author information. 
+
 Articles can be created via REST API. The web application receives a notification and adds the new article to the page. The animation shows how curl requests are executed at the bottom which trigger updates to the web application at the top.
 
 <kbd><img src="images/demo-1-video-small.gif" /></kbd>
@@ -19,10 +21,10 @@ The API client 'Submissions' triggers the REST API of the 'Articles' service to 
 ## Objectives
 
 After you complete this workshop, you'll understand the following reactive functionality:
+* Sending and receiving Kafka messages via MicroProfile
 * Sending events from microservices to web applications via Server Sent Events
 * Sending in-memory messages via MicroProfile
 * Sending in-memory messages via Vertx event bus
-* Sending and receiving Kafka messages via MicroProfile
 * Sending Kafka messages via Kafka API
 
 ## Get Started
