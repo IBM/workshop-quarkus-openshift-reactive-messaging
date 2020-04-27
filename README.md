@@ -23,9 +23,9 @@ The API client 'Submissions' triggers the REST API of the 'Articles' service to 
 After you complete this workshop, you'll understand the following reactive functionality:
 * Sending and receiving Kafka messages via MicroProfile
 * Sending events from microservices to web applications via Server Sent Events
-* Sending in-memory messages via MicroProfile
-* Sending in-memory messages via Vertx event bus
-* Sending Kafka messages via Kafka API
+* Sending in-memory messages via MicroProfile and Vertxx event bus
+
+This workshop is for beginners and takes one hour.
 
 ## Get Started
 
@@ -37,7 +37,10 @@ These are the labs of this workshop, go through all of them in sequence, start w
 * Lab 4: [Deploy Sample Application](labs/lab4.md)
 * Lab 5: [Reactive Messaging with MicroProfile](labs/lab5.md)
 * Lab 6: [Server Sent Events](labs/lab6.md)
+* Lab 7: [Vert.x Event Bus](labs/lab7.md)
 
 ## What to do next
 
 The [presentation](images/ReactiveMicroservices.pdf) as well as the [blogs](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs) describe the functionality in more detail.
+
+Next week a second workshop will be added that describes how to implement reactive endpoints.

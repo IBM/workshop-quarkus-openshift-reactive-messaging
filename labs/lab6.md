@@ -6,6 +6,7 @@ Navigator:
 * Lab 4: [Deploy Sample Application](lab4.md)
 * Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
 * Lab 6: Server Sent Events
+* Lab 7: [Vert.x Event Bus](lab7.md)
 
 ---
 
@@ -126,4 +127,4 @@ Open the web application in a browser. Then invoke the curl post command. The we
 
 ---
 
-__Continue with [Lab 7: to be done](lab7.md)__
+__Continue with [Lab 7: Vert.x Event Bus](lab7.md)__
