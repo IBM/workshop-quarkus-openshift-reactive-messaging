@@ -16,7 +16,7 @@ In this lab you'll deploy the sample application which consists of three microse
 
 ### Step 1: Create Project
 
-Invoke the following command in the Cloud Shell.
+Invoke the following command in the Cloud Shell to create a new project.
 
 ```
 $ oc new-project cloud-native-starter
@@ -26,7 +26,7 @@ $ oc new-project cloud-native-starter
 
 ### Step 2: Deploy Services and Web Application
 
-Invoke the following command in the Cloud Shell.
+Invoke the following command in the Cloud Shell to deploy the 'Articles' service.
 
 ```
 $ $ROOT_FOLDER/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
@@ -34,7 +34,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
 
 ![sample app](../images/deploy-app1.png)
 
-Invoke the following command in the Cloud Shell.
+Invoke the following command in the Cloud Shell to deploy the 'Authors' service.
 
 ```
 $ $ROOT_FOLDER/os4-scripts/deploy-authors-via-oc.sh
@@ -42,7 +42,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-authors-via-oc.sh
 
 ![sample app](../images/deploy-app2.png)
 
-Invoke the following command in the Cloud Shell.
+Invoke the following command in the Cloud Shell to deploy the 'Web-API' service.
 
 ```
 $ $ROOT_FOLDER/os4-scripts/deploy-web-api-reactive-via-oc.sh
@@ -50,7 +50,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-web-api-reactive-via-oc.sh
 
 ![sample app](../images/deploy-app3.png)
 
-Invoke the following command in the Cloud Shell.
+Invoke the following command in the Cloud Shell to deploy the web app.
 
 ```
 $ $ROOT_FOLDER/os4-scripts/deploy-web-app-reactive-via-oc.sh
@@ -86,4 +86,4 @@ Open the web application in a browser. Then invoke the curl post command. The we
 
 ---
 
-__Continue with [Lab 5: to be done](lab5.md)__
+__Continue with [Lab 5: Reactive Messaging with MicroProfile](lab5.md)__
