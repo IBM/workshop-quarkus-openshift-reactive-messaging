@@ -26,7 +26,7 @@ Let's take a look at the JavaScript code which consumes the server side events.
 A new EventSource is created by passing in the the URL of the streaming endpoint. The function source.onmessage is invoked when the events arrive. In our case this triggers the reload of the last articles.
 
 ```
-$ cd $ROOT_FOLDER/web-app-reactive/src/components
+$ cd ~/cloud-native-starter/reactive/web-app-reactive/src/components
 $ cat Home.vue
 ```
 
@@ -39,7 +39,7 @@ $ cat Home.vue
 The sample already comes with a working endpoint. Let's delete the file and recreate it from scratch.
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive/src/main/java/com/ibm/webapi/apis/ 
+$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis/ 
 $ rm NewArticlesStreamResource.java
 $ touch NewArticlesStreamResource.java
 $ nano NewArticlesStreamResource.java
@@ -94,7 +94,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 ### Step 3: Deploy new Version
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive
+$ cd ~/cloud-native-starter/reactive/web-api-reactive
 $ oc start-build web-api-reactive --from-dir=.
 ```
 
@@ -117,7 +117,7 @@ Make sure all four pods in the 'cloud-native-starter' project are running. Note 
 To launch the application get the URLs via the following command.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/show-urls.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
 ![sample app](../images/verify-app5.png)

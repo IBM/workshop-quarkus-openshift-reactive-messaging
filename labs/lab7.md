@@ -36,7 +36,7 @@ In this lab you'll use the event bus to communicate between the business and the
 Let's take a look at the implementation of [ArticleService](https://github.com/IBM/cloud-native-starter/blob/master/reactive/articles-reactive/src/main/java/com/ibm/articles/business/ArticleService.java) in the business layer.
 
 ```
-$ cd $ROOT_FOLDER/articles-reactive/src/main/java/com/ibm/articles/
+$ cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
 $ cat business/ArticlesService.java
 ```
 
@@ -51,7 +51,7 @@ System.out.println("Sending message via Vert.x Event Bus");
 ```
 
 ```
-$ cd $ROOT_FOLDER/articles-reactive/src/main/java/com/ibm/articles/
+$ cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
 $ nano business/ArticlesService.java
 ```
 
@@ -71,7 +71,7 @@ System.out.println("Receiving message via Vert.x Event Bus");
 ```
 
 ```
-$ cd $ROOT_FOLDER/articles-reactive/src/main/java/com/ibm/articles/
+$ cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
 $ nano apis/NewArticleCreatedListener.java
 ```
 
@@ -82,7 +82,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 ### Step 3: Deploy new Version
 
 ```
-$ cd $ROOT_FOLDER/articles-reactive
+$ cd ~/cloud-native-starter/reactive/articles-reactive
 $ oc start-build articles-reactive --from-dir=.
 ```
 
@@ -101,12 +101,17 @@ Delete the articles pod. This will trigger Kubernetes to start a new pod with th
 Create a new article by invoking a curl post command. You can get the URL from the script show-urls.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/show-urls.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
 ![kafka deployment](../images/microprofile-kafka8.png)
 
-In order to see the logs in the terminal, get the pod name:
+In order to see the logs, you can do two things:
+
+1. Use the following instructions which leverage a terminal
+2. Use distributed logging as documented in [lab 8](lab8.md)
+
+In the terminal get the pod name:
 
 ```
 $ oc get pods

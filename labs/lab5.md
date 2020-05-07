@@ -30,7 +30,7 @@ Let's take a look at a Java class which receives incomping messages from Kafka a
 Invoke the following command in the Cloud Shell.
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive/src/main/java/com/ibm/webapi/apis
+$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
 $ nano NewArticleListener.java
 ```
 
@@ -53,7 +53,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 Confirm that the changes have been saved. 
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive/src/main/java/com/ibm/webapi/apis
+$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
 $ cat NewArticleListener.java
 ```
 
@@ -66,21 +66,21 @@ The incoming messages in the snippet above are received from Kafka. The 'Article
 In order to subscribe to these Kafka messages in Quarkus, the topic needs to be configured in application.properties.
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive/src/main/resources
+$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/resources
 $ cat application.properties
 ```
 
 ![kafka deployment](../images/microprofile-kafka4.png)
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive/src/main/java/com/ibm/webapi/apis
+$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
 $ cat NewArticleListener.java
 ```
 
 ### Step 3: Deploy new Version
 
 ```
-$ cd $ROOT_FOLDER/web-api-reactive
+$ cd ~/cloud-native-starter/reactive/web-api-reactive
 $ oc start-build web-api-reactive --from-dir=.
 ```
 
@@ -99,12 +99,17 @@ Once completed, delete the 'Web-API' pod which causes a new pod with the latest 
 Create a new article by invoking a curl post command. You can get the URL from the script show-urls.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/show-urls.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
 ![kafka deployment](../images/microprofile-kafka8.png)
 
-In order to see the logs in the terminal, get the pod name:
+In order to see the logs, you can do two things:
+
+1. Use the following instructions which leverage a terminal
+2. Use distributed logging as documented in [lab 8](lab8.md)
+
+In the terminal get the pod name:
 
 ```
 $ oc get pods
