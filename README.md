@@ -38,6 +38,7 @@ These are the labs of this workshop, go through all of them in sequence, start w
 * Lab 5: [Reactive Messaging with MicroProfile](labs/lab5.md)
 * Lab 6: [Server Sent Events](labs/lab6.md)
 * Lab 7: [Vert.x Event Bus](labs/lab7.md)
+* Lab 8 (optional): [Use distributed Logging](labs/lab8.md)
 
 ## What to do next
 

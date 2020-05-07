@@ -7,6 +7,7 @@ Navigator:
 * Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
 * Lab 6: [Server Sent Events](lab6.md)
 * Lab 7: Vert.x Event Bus
+* Lab 8 (optional): [Use distributed Logging](lab8.md)
 
 ---
 
@@ -125,4 +126,4 @@ Your added line shows up in the logs now.
 
 ---
 
-__Congratulations! You've finished the workshop!__
+__Continue with [Lab 8: Use distributed Logging](lab8.md)__

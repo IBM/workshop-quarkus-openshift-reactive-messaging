@@ -7,6 +7,7 @@ Navigator:
 * Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
 * Lab 6: [Server Sent Events](lab6.md)
 * Lab 7: [Vert.x Event Bus](lab7.md)
+* Lab 8 (optional): [Use distributed Logging](lab8.md)
 
 ---
 
@@ -19,7 +20,7 @@ In this short lab you'll deploy Kafka via a script.
 Invoke the following command:
 
 ```
-$ os4-scripts/deploy-kafka-oc-only.sh 
+$ $ROOT_FOLDER/os4-scripts/deploy-kafka-oc-only.sh 
 ```
 
 As result you will see this:
