@@ -37,7 +37,7 @@ Let's take a look at the implementation of [ArticleService](https://github.com/I
 
 ```
 $ cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
-$ cat business/ArticlesService.java
+$ cat business/ArticleService.java
 ```
 
 ![bus](../images/event-bus3.png)
@@ -52,7 +52,7 @@ System.out.println("Sending message via Vert.x Event Bus");
 
 ```
 $ cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
-$ nano business/ArticlesService.java
+$ nano business/ArticleService.java
 ```
 
 ![bus](../images/event-bus4.png)
