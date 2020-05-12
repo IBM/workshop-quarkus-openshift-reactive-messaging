@@ -1,5 +1,5 @@
 Navigator:
-* [Workshop Description](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-messaging/)
+* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-messaging/)
 * Lab 1: Create your Work Environment
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
