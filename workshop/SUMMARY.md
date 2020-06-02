@@ -16,6 +16,7 @@
 * [Exercise 2 - Deploy Postgres via Operator](exercise-02/README.md) 
 * [Exercise 3 - Deploy Sample Application](exercise-03/README.md)
 
+* [YouTube - How to setup the sample application (optional)](https://suedbroecker.net/2020/05/26/how-to-setup-the-reactive-cloud-native-starter-sample-application-on-openshift-in-ibm-cloud/)
 ### Build new version of the Microservice
 
 * [Exercise 4 - Reactive Messaging with MicroProfile](exercise-04/README.md) 
@@ -25,6 +26,7 @@
 
 ### Resources
 
+* YouTube video [How to setup the reactive sample application on OpenShift](https://suedbroecker.net/2020/05/26/how-to-setup-the-reactive-cloud-native-starter-sample-application-on-openshift-in-ibm-cloud/)
 * [Blog posts related to reactive](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs)
 * [Workshop: Reactive Endpoint with Quarkus on OpenShift](https://github.com/IBM/workshop-quarkus-openshift-reactive-endpoints)
 * [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter)
