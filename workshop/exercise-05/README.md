@@ -1,23 +1,10 @@
-Navigator:
-* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-messaging/)
-* Lab 1: [Create your Cloud Environment](lab1.md)
-* Lab 2: [Deploy Kafka via Script](lab2.md)
-* Lab 3: [Deploy Postgres via Operator](lab3.md)
-* Lab 4: [Deploy Sample Application](lab4.md)
-* Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
-* Lab 6: Server Sent Events
-* Lab 7: [Vert.x Event Bus](lab7.md)
-* Lab 8 (optional): [Use distributed Logging](lab8.md)
-
----
-
-# Lab 6: Server Sent Events
+# Exercise 5: Server Sent Events
 
 In this lab you'll learn how to expose streaming endpoints so that web applications are notified via [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events). 
 
 The web application 'Web-App' receives notifications from the 'Web-API' service.
 
-![server events](../images/server-sent-events1.png)
+![server events](../../images/server-sent-events1.png)
 
 ### Step 1: Understand the Web Application Consumer
 
@@ -30,9 +17,9 @@ $ cd ~/cloud-native-starter/reactive/web-app-reactive/src/components
 $ cat Home.vue
 ```
 
-![server events](../images/server-sent-events2a.png)
+![server events](../../images/server-sent-events2a.png)
 
-![server events](../images/server-sent-events2b.png)
+![server events](../../images/server-sent-events2b.png)
 
 ### Step 2: Develop the Streaming Endpoint
 
@@ -45,7 +32,7 @@ $ touch NewArticlesStreamResource.java
 $ nano NewArticlesStreamResource.java
 ```
 
-![server events](../images/server-sent-events3.png)
+![server events](../../images/server-sent-events3.png)
 
 Add the package name, the import statements and the empty class.
 
@@ -87,7 +74,7 @@ Last, but not least, add the implementation of the streaming endpoint. The media
 
 Once you've entered everything the [class](https://github.com/IBM/cloud-native-starter/blob/master/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis/NewArticlesStreamResource.java) should look like this.
 
-![server events](../images/server-sent-events4.png)
+![server events](../../images/server-sent-events4.png)
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
@@ -98,21 +85,21 @@ $ cd ~/cloud-native-starter/reactive/web-api-reactive
 $ oc start-build web-api-reactive --from-dir=.
 ```
 
-![kafka deployment](../images/microprofile-kafka5.png)
+![](../../images/microprofile-kafka5.png)
 
 On the 'Builds' page wait until the new build has been completed.
 
-![kafka deployment](../images/microprofile-kafka6.png)
+![](../../images/microprofile-kafka6.png)
 
 Once completed, delete the 'Web-API' pod which causes a new pod with the latest image to be started.
 
-![kafka deployment](../images/microprofile-kafka7.png)
+![](../../images/microprofile-kafka7.png)
 
 ### Step 4: Verify new Version
 
 Make sure all four pods in the 'cloud-native-starter' project are running. Note that it takes a couple of minutes until this happens.
 
-![sample app](../images/verify-app1.png)
+![](../../images/verify-app1.png)
 
 To launch the application get the URLs via the following command.
 
@@ -120,12 +107,9 @@ To launch the application get the URLs via the following command.
 $ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
-![sample app](../images/verify-app5.png)
+![](../../images/verify-app5.png)
 
 Open the web application in a browser. Then invoke the curl post command. The web application should show the new entry.
 
-![sample app](../images/verify-app6.png)
+![](../images/verify-app6.png)
 
----
-
-__Continue with [Lab 7: Vert.x Event Bus](lab7.md)__
