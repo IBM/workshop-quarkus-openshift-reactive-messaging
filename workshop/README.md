@@ -54,7 +54,7 @@ The introductory page of the workshop is broken down into the following sections
 
 ### Agenda
 
-These are the labs of this workshop, go through all of them in sequence, start with pre work 1:
+These are the labs of this workshop, go through all of them in sequence, start with pre work:
 
 |   |   |
 | - | - |
