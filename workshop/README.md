@@ -10,7 +10,7 @@ The workshop uses a sample application to demonstrate reactive functionality. Th
 
 Articles can be created via REST API. The web application receives a notification and adds the new article to the page. The animation shows how curl requests are executed at the bottom which trigger updates to the web application at the top.
 
-<kbd><img src="images/demo-1-video-small.gif" /></kbd>
+<kbd><img src="../images/demo-1-video-small.gif" /></kbd>
 
 ### Architecture
 
@@ -21,11 +21,10 @@ The next diagram explains the flow between the different components and microser
 3. The 'Web-API' provides a streaming endpoint
 4. The web application 'Web-App' consumes the streaming endpoint
 
-<kbd><img src="images/demo-1-small.png" /></kbd>
+<kbd><img src="../images/demo-1-small.png" /></kbd>
 
 Note that in this workshop you will deploy the full application as described in the previous diagram. But to simplify the workshop you'll re-implement a simpler version of the 'Web-API' service which only invokes the 'Articles' service.
 
-<kbd><img src="../../images/architecture1.png" /></kbd>
 
 ### Estimated time and level
 
