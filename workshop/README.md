@@ -25,7 +25,7 @@ The next diagram explains the flow between the different components and microser
 
 Note that in this workshop you will deploy the full application as described in the previous diagram. But to simplify the workshop you'll re-implement a simpler version of the 'Web-API' service which only invokes the 'Articles' service.
 
-<kbd><img src="../images/architecture1.png" /></kbd>
+<kbd><img src="../../images/architecture1.png" /></kbd>
 
 ### Estimated time and level
 
