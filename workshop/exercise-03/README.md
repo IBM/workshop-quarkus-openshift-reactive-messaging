@@ -12,7 +12,7 @@ Let's take a look at the JavaScript code which consumes the server side events.
 
 A new EventSource is created by passing in the the URL of the streaming endpoint. The function source.onmessage is invoked when the events arrive. In our case this triggers the reload of the last articles.
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/web-app-reactive/src/components
 cat Home.vue
 ```
@@ -25,7 +25,7 @@ cat Home.vue
 
 The sample already comes with a working endpoint. Let's delete the file and recreate it from scratch.
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis/ 
 rm NewArticlesStreamResource.java
 touch NewArticlesStreamResource.java
@@ -36,7 +36,7 @@ nano NewArticlesStreamResource.java
 
 Add the package name, the import statements and the empty class.
 
-```
+```java
 package com.ibm.webapi.apis;
 
 import javax.inject.Inject;
@@ -55,14 +55,14 @@ public class NewArticlesStreamResource {
 
 In [exercise 2](../exercise-02/exercise-02.md) you saw how to publish messages to the in-memory channel 'stream-new-article'. A publisher to this channel can easily be injected via @Inject and @Channel. 
 
-```
+```java
     @Inject
     @Channel("stream-new-article") Publisher<String> newArticles;
 ```
 
 Last, but not least, add the implementation of the streaming endpoint. The media type is MediaType.SERVER_SENT_EVENTS and the annotation @SseElementType defines the type.
 
-```
+```java
     @GET
     @Path("/server-sent-events")
     @Produces(MediaType.SERVER_SENT_EVENTS) 
@@ -80,9 +80,9 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 ### Step 3: Deploy new Version
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive
-$ oc start-build web-api-reactive --from-dir=.
+```sh
+cd ~/cloud-native-starter/reactive/web-api-reactive
+oc start-build web-api-reactive --from-dir=.
 ```
 
 ![](../../images/microprofile-kafka5.png)

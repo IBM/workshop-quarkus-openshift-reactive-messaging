@@ -8,7 +8,7 @@ The interfaces of the main Reactive Streams components [Subscriber, Publisher an
 
 The 'Articles' service writes messages to Kafka after new articles have been created. In this lab we'll take a look how these messages can be read from the 'Web-API' service.
 
-![](../images/microprofile-kafka11.png)
+![](../../images/microprofile-kafka11.png)
 
 ### Step 1: Modify Subscriber, Publisher and Processor Class
 
@@ -21,7 +21,7 @@ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi
 nano NewArticleListener.java
 ```
 
-![](../images/microprofile-kafka1.png)
+![](../../images/microprofile-kafka1.png)
 
 The @Incoming annotation indicates that the method consumes the items from the topic 'new-article-created'. The @Outgoing annotation indicates that the objects returned by the method are sent to the stream 'stream-new-article'. @Broadcast indicates that the item are dispatched to all subscribers.
 
@@ -33,7 +33,7 @@ Let's make a simple change and redeploy the microservice by adding this line.
 System.out.println("Here you can add process functionality");
 ```
 
-![](../images/microprofile-kafka2.png)
+![](../../images/microprofile-kafka2.png)
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
@@ -44,7 +44,7 @@ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi
 cat NewArticleListener.java
 ```
 
-![](../images/microprofile-kafka3.png)
+![](../../images/microprofile-kafka3.png)
 
 ### Step 2: Configure Kafka
 
@@ -57,7 +57,7 @@ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/resources
 cat application.properties
 ```
 
-![](../images/microprofile-kafka4.png)
+![](../../images/microprofile-kafka4.png)
 
 ```
 cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
@@ -71,15 +71,15 @@ cd ~/cloud-native-starter/reactive/web-api-reactive
 oc start-build web-api-reactive --from-dir=.
 ```
 
-![](../images/microprofile-kafka5.png)
+![](../../images/microprofile-kafka5.png)
 
 On the 'Builds' page wait until the new build has been completed.
 
-![](../images/microprofile-kafka6.png)
+![](../../images/microprofile-kafka6.png)
 
 Once completed, delete the 'Web-API' pod which causes a new pod with the latest image to be started.
 
-![](../images/microprofile-kafka7.png)
+![](../../images/microprofile-kafka7.png)
 
 ### Step 4: Verify the new Version
 
@@ -89,7 +89,7 @@ Create a new article by invoking a curl post command. You can get the URL from t
 ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
-![](../images/microprofile-kafka8.png)
+![](../../images/microprofile-kafka8.png)
 
 In order to see the logs, you can do two things:
 
@@ -102,7 +102,7 @@ In the terminal get the pod name:
 oc get pods
 ```
 
-![](../images/microprofile-kafka9.png)
+![](../../images/microprofile-kafka9.png)
 
 After this invoke this command to display the logs of the pod.
 
@@ -110,7 +110,7 @@ After this invoke this command to display the logs of the pod.
 oc logs web-api-reactive-xxxxxxxxxxx-xxxxx
 ```
 
-![](../images/microprofile-kafka10.png)
+![](../../images/microprofile-kafka10.png)
 
 Your added line shows up in the logs now.
 

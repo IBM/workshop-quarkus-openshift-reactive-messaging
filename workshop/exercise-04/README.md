@@ -14,7 +14,7 @@ The 'Articles' service uses a clean architecture approach. There are three diffe
 
 The API layer contains the implementation of the REST APIs and the external messaging interfaces. The data layer contains the implementation of the persistence and could include calls to other external services. The API layer and the data layer can be easily replaced without changing the business logic.
 
-![bus](../../images/event-bus2.png)
+![](../../images/event-bus2.png)
 
 In this lab you'll use the event bus to communicate between the business and the API layers.
 
