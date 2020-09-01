@@ -1,95 +1,96 @@
-# Exercise 4: Reactive Messaging with MicroProfile
+# Exercise 4: Vert.x Event Bus
 
-In this lab you'll learn how to use reactive messaging with [MicroProfile Messaging](https://download.eclipse.org/microprofile/microprofile-reactive-messaging-1.0/microprofile-reactive-messaging-spec.html). With simple Java annotations messages can be sent and received in memory as well as via [Apache Kafka](https://kafka.apache.org/). 
+The [Vert.x Event Bus](https://vertx.io/docs/vertx-core/java/#event_bus) allows different parts of your application to communicate with each other. Check out the [guide](https://quarkus.io/guides/reactive-messaging) to find out more details.
 
-MicroProfile Messaging implements the [Reactive Streams](https://www.reactive-streams.org/) standard which defines how to do asynchronous stream processing for different programming languages independently from specific libraries. 
+In this lab you'll learn how to use the bus to communicate in-memory between different layers of the 'Articles' service.
 
-The interfaces of the main Reactive Streams components [Subscriber, Publisher and Processor](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html) have been available since JDK 9. The implementation of these interfaces is provided by MicroProfile.
+![](../../images/event-bus1.png)
 
-The 'Articles' service writes messages to Kafka after new articles have been created. In this lab we'll take a look how these messages can be read from the 'Web-API' service.
+The 'Articles' service uses a clean architecture approach. There are three different layers:
 
-![](../images/microprofile-kafka11.png)
+* API
+* Business
+* Data
 
-### Step 1: Modify Subscriber, Publisher and Processor Class
+The API layer contains the implementation of the REST APIs and the external messaging interfaces. The data layer contains the implementation of the persistence and could include calls to other external services. The API layer and the data layer can be easily replaced without changing the business logic.
 
-Let's take a look at a Java class which receives incomping messages from Kafka and sends outgoing in-memory messages.
+![bus](../../images/event-bus2.png)
 
-Invoke the following command in the Cloud Shell.
+In this lab you'll use the event bus to communicate between the business and the API layers.
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
-$ nano NewArticleListener.java
-```
+### Step 1: Understand the Publisher
 
-![](../images/microprofile-kafka1.png)
-
-The @Incoming annotation indicates that the method consumes the items from the topic 'new-article-created'. The @Outgoing annotation indicates that the objects returned by the method are sent to the stream 'stream-new-article'. @Broadcast indicates that the item are dispatched to all subscribers.
-
-The snippet is a Subscriber as well as a Publisher which means that it is automatically also a Processor which can, for example, convert incoming messages and forward them.
-
-Let's make a simple change and redeploy the microservice by adding this line.
+Let's take a look at the implementation of [ArticleService](https://github.com/IBM/cloud-native-starter/blob/master/reactive/articles-reactive/src/main/java/com/ibm/articles/business/ArticleService.java) in the business layer.
 
 ```
-System.out.println("Here you can add process functionality");
+cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
+cat business/ArticleService.java
 ```
 
-![](../images/microprofile-kafka2.png)
+![](../../images/event-bus3.png)
+
+An instance of the bus can be injected via @Inject.
+
+Next let's modify the method 'sendMessageToKafka' slightly by adding a System.out.println.
+
+```
+System.out.println("Sending message via Vert.x Event Bus");
+```
+
+```
+cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
+nano business/ArticleService.java
+```
+
+![](../../images/event-bus4.png)
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-Confirm that the changes have been saved. 
+### Step 2: Understand the Subscriber
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
-$ cat NewArticleListener.java
-```
+The method 'sendMessageToKafka' in the class [NewArticleCreatedListener.java](https://github.com/IBM/cloud-native-starter/blob/master/reactive/articles-reactive/src/main/java/com/ibm/articles/apis/NewArticleCreatedListener.java) in the API layer is invoked when the messages should be sent to Kafka. This is defined via the annotation @ConsumeEvent.
 
-![](../images/microprofile-kafka3.png)
+Let's modify this method slightly as well.
 
-### Step 2: Configure Kafka
-
-The incoming messages in the snippet above are received from Kafka. The 'Articles' service writes these messages to Kafka after new articles have been created.
-
-In order to subscribe to these Kafka messages in Quarkus, the topic needs to be configured in application.properties.
-
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/resources
-$ cat application.properties
+```java
+System.out.println("Receiving message via Vert.x Event Bus");
 ```
 
-![](../images/microprofile-kafka4.png)
+```sh
+cd ~/cloud-native-starter/reactive/articles-reactive/src/main/java/com/ibm/articles/
+nano apis/NewArticleCreatedListener.java
+```
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis
-$ cat NewArticleListener.java
-```
+![](../../images/event-bus5.png)
+
+Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 ### Step 3: Deploy new Version
 
+```sh
+cd ~/cloud-native-starter/reactive/articles-reactive
+oc start-build articles-reactive --from-dir=.
 ```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive
-$ oc start-build web-api-reactive --from-dir=.
-```
 
-![](../images/microprofile-kafka5.png)
+![](../../images/event-bus6.png)
 
-On the 'Builds' page wait until the new build has been completed.
+Wait until the build has been completed.
 
-![](../images/microprofile-kafka6.png)
+![](../../images/event-bus7.png)
 
-Once completed, delete the 'Web-API' pod which causes a new pod with the latest image to be started.
+Delete the articles pod. This will trigger Kubernetes to start a new pod with the latest version of the image.
 
-![](../images/microprofile-kafka7.png)
+![](../../images/event-bus8.png)
 
-### Step 4: Verify the new Version
+### Step 4: Deploy new Version
 
 Create a new article by invoking a curl post command. You can get the URL from the script show-urls.
 
-```
-$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
+```sh
+~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
-![](../images/microprofile-kafka8.png)
+![](../../images/microprofile-kafka8.png)
 
 In order to see the logs, you can do two things:
 
@@ -98,19 +99,19 @@ In order to see the logs, you can do two things:
 
 In the terminal get the pod name:
 
-```
-$ oc get pods
+```sh
+oc get pods
 ```
 
-![](../images/microprofile-kafka9.png)
+![](../../images/event-bus9.png)
 
 After this invoke this command to display the logs of the pod.
 
-```
-$ oc logs web-api-reactive-xxxxxxxxxxx-xxxxx
+```sh
+oc logs articles-reactive-xxxxxxxxxxx-xxxxx
 ```
 
-![](../images/microprofile-kafka10.png)
+![](../../images/event-bus10.png)
 
 Your added line shows up in the logs now.
 

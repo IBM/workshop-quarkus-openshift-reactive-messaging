@@ -59,13 +59,11 @@ These are the labs of this workshop, go through all of them in sequence, start w
 |   |   |
 | - | - |
 | [Pre work](pre-work/README.md) | Create your Cloud Environment |
-| [Exercise 1](exercise-01/README.md) | Deploy Kafka via Script |
-| [Exercise 2](exercise-02/README.md) | Deploy Postgres via Operator |
-| [Exercise 3](exercise-03/README.md) | Deploy Sample Application |
-| [Exercise 4](exercise-04/README.md) | Reactive Messaging with MicroProfile |
-| [Exercise 5](exercise-05/README.md) | Server Sent Events |
-| [Exercise 6](exercise-06/README.md) | Vert.x Event Bus |
-| [Exercise 7 (optional)](exercise-07/README.md) | Use distributed Logging |
+| [Exercise 1](exercise-01/README.md) | Deploy example application via Script |
+| [Exercise 2](exercise-04/README.md) | Reactive Messaging with MicroProfile |
+| [Exercise 3](exercise-05/README.md) | Server Sent Events |
+| [Exercise 4](exercise-06/README.md) | Vert.x Event Bus |
+| [Exercise 5 (optional)](exercise-07/README.md) | Use distributed Logging |
 
 ### Compatibility
 

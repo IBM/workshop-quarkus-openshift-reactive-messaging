@@ -12,17 +12,15 @@
 
 ### Setup the sample application
 
-* [Exercise 1 - Deploy Kafka via Script](exercise-01/README.md)
-* [Exercise 2 - Deploy Postgres via Operator](exercise-02/README.md) 
-* [Exercise 3 - Deploy Sample Application](exercise-03/README.md)
+* [Exercise 1 - Setup via Script](exercise-01/README.md)
 * [YouTube - How to setup the sample application (optional)](https://suedbroecker.net/2020/05/26/how-to-setup-the-reactive-cloud-native-starter-sample-application-on-openshift-in-ibm-cloud/)
 
 ### Build new version of the Microservice
 
-* [Exercise 4 - Reactive Messaging with MicroProfile](exercise-04/README.md) 
-* [Exercise 5 - Server Sent Events](exercise-05/README.md)
-* [Exercise 6 - Vert.x Event Bus](exercise-06/README.md)
-* [Exercise 7 (optional) - Use distributed Logging](exercise-07/README.md) 
+* [Exercise 2 - Reactive Messaging with MicroProfile](exercise-02/README.md) 
+* [Exercise 3 - Server Sent Events](exercise-03/README.md)
+* [Exercise 4 - Vert.x Event Bus](exercise-04/README.md)
+* [Exercise 5 (optional) - Use distributed Logging](exercise-05/README.md) 
 
 ### Resources
 

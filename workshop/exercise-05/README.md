@@ -1,115 +1,83 @@
-# Exercise 5: Server Sent Events
+# Exercise 5 (Optional): Use distributed Logging
 
-In this lab you'll learn how to expose streaming endpoints so that web applications are notified via [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events). 
+Cloud native applications based on microservices contain many parts that create logs. A logging service that is able to collect all distributed logs in one place is a highly recommended tool. There are many logging solutions that you can install directly into your Kubernetes or OpenShift cluster. But then you have an additional application that needs to be maintained and one that needs persistent storage as well to store logs for a period of time. 
 
-The web application 'Web-App' receives notifications from the 'Web-API' service.
+IBM Cloud offers "Logging as a Service" in the form of [IBM Log Analysis with LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started). It offers features to filter, search, and tail log data, define alerts, and design custom views to monitor application and system logs. You can test "IBM Log Analysis with LogDNA" for free with somewhat limited capabilities and we will show you in this lab how to connect your OpenShift cluster to an instance of it.
 
-![server events](../../images/server-sent-events1.png)
+Official documentation for setting up the LogDNA agent for an OpenShift cluster is [here](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-config_agent_os_cluster).
 
-### Step 1: Understand the Web Application Consumer
+For the following instructions use the IBM Cloud Shell to enter the commands.
 
-Let's take a look at the JavaScript code which consumes the server side events.
+### Step 1: Create LogDNA Service
 
-A new EventSource is created by passing in the the URL of the streaming endpoint. The function source.onmessage is invoked when the events arrive. In our case this triggers the reload of the last articles.
+In your browser log in to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using **your own account**. From the 'burger menu' in the upper left corner select 'Observability'.
 
-```
-$ cd ~/cloud-native-starter/reactive/web-app-reactive/src/components
-$ cat Home.vue
-```
+![ldna-1](../../images/log1.png)
 
-![server events](../../images/server-sent-events2a.png)
+Create an 'IBM Log Analysis with LogDNA' instance by clicking on 'Create new'.
 
-![server events](../../images/server-sent-events2b.png)
+![ldna-1](../../images/log2.png)
 
-### Step 2: Develop the Streaming Endpoint
+On the 'Create' tab leave all defaults. All you have to do is to create the big blue 'Create' button.
 
-The sample already comes with a working endpoint. Let's delete the file and recreate it from scratch.
+![ldna-1](../../images/log3.png)
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis/ 
-$ rm NewArticlesStreamResource.java
-$ touch NewArticlesStreamResource.java
-$ nano NewArticlesStreamResource.java
-```
+### Step 2: Configure LogDNA
 
-![server events](../../images/server-sent-events3.png)
+Select 'Edit log sources'.
 
-Add the package name, the import statements and the empty class.
+   ![ldna-3](../../images/log4.png)
 
-```
-package com.ibm.webapi.apis;
+Select the 'OpenShift' tab. Copy, paste, and execute the commands into your IBM Cloud Shell:
 
-import javax.inject.Inject;
-import javax.ws.rs.core.MediaType;
-import org.reactivestreams.Publisher;
-import io.smallrye.reactive.messaging.annotations.Channel;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import org.jboss.resteasy.annotations.SseElementType;
+![ldna-4](../../images/log5.png)
 
-@Path("/v2")
-public class NewArticlesStreamResource {
-}
-```
 
-In [lab 5](lab5.md) you saw how to publish messages to the in-memory channel 'stream-new-article'. A publisher to this channel can easily be injected via @Inject and @Channel. 
+In the Cloud Shell check that the logging agent is running.
 
 ```
-    @Inject
-    @Channel("stream-new-article") Publisher<String> newArticles;
+$ oc get all -n ibm-observe
 ```
 
-Last, but not least, add the implementation of the streaming endpoint. The media type is MediaType.SERVER_SENT_EVENTS and the annotation @SseElementType defines the type.
+![ldna-5](../../images/log6.png)
+
+### Step 3: Use LogDNA
+
+Go back to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using your own account. From the 'burger menu' in the upper left corner select 'Observability' and then 'Logging'.
+
+![ldna-5](../../images/log7.png)
+
+Click 'View LogDNA'.
+
+![ldna-5](../../images/log8.png)
+
+In Lab 4 [Deploying Sample Application](lab4.md) you have deployed an instance of the 'Articles' service called 'articles-reactive'. We will check LogDNA for output from this instance. Execute the following commands in the Cloud Shell:
 
 ```
-    @GET
-    @Path("/server-sent-events")
-    @Produces(MediaType.SERVER_SENT_EVENTS) 
-    @SseElementType("text/plain") 
-    public Publisher<String> stream() { 
-        return newArticles;
-    }
+$ oc project cloud-native-starter
+$ watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
 ```
+   
+The "watch" command will constantly (every 2 seconds) request articles information.
 
-Once you've entered everything the [class](https://github.com/IBM/cloud-native-starter/blob/master/reactive/web-api-reactive/src/main/java/com/ibm/webapi/apis/NewArticlesStreamResource.java) should look like this.
+Refresh your browser tab with the LogDNA dashboard and insert in the search field "getArticlesReactive".
 
-![server events](../../images/server-sent-events4.png)
+![ldna-5](../../images/log9.png)
 
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+Note: If you don't see "getArticlesReactive" wait a little longer (with the free/lite version it can take several minutes before data shows up), then refresh the browser tab of the LogDNA dashboard again.
 
-### Step 3: Deploy new Version
+Select 'Unsaved View' and then 'Save as new/alert'.
 
-```
-$ cd ~/cloud-native-starter/reactive/web-api-reactive
-$ oc start-build web-api-reactive --from-dir=.
-```
+![ldna-5](../../images/log10.png)
 
-![](../../images/microprofile-kafka5.png)
+Give the view a ane and press 'Save View'.
 
-On the 'Builds' page wait until the new build has been completed.
+![ldna-5](../../images/log11.png)
 
-![](../../images/microprofile-kafka6.png)
+From now the new view is available under 'Views'.
 
-Once completed, delete the 'Web-API' pod which causes a new pod with the latest image to be started.
+![ldna-5](../../images/log12.png)
 
-![](../../images/microprofile-kafka7.png)
+---
 
-### Step 4: Verify new Version
-
-Make sure all four pods in the 'cloud-native-starter' project are running. Note that it takes a couple of minutes until this happens.
-
-![](../../images/verify-app1.png)
-
-To launch the application get the URLs via the following command.
-
-```
-$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
-```
-
-![](../../images/verify-app5.png)
-
-Open the web application in a browser. Then invoke the curl post command. The web application should show the new entry.
-
-![](../images/verify-app6.png)
-
+__Congratulations! You’ve finished the workshop!__
